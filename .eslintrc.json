@@ -1,0 +1,139 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "unused-imports", // 사용하지 않는 import 구문 제거 - eslint-plugin-unused-imports
+    "react",
+    "@typescript-eslint",
+    "import",
+    "react-hooks" // react hook rules - eslint-plugin-react-hooks
+  ],
+  "extends": [
+    "plugin:react/recommended", // 리액트 추천 룰셋
+    "plugin:@typescript-eslint/recommended", // 타입스크립트 추천 룰셋
+    "plugin:prettier/recommended", // eslint의 포매팅 기능을 prettier로 사용함
+    "prettier",
+    "plugin:import/recommended",
+    "plugin:@next/next/recommended" // nextjs eslint - https://nextjs.org/docs/pages/building-your-application/configuring/eslint#eslint-plugin
+  ],
+  "rules": {
+    "eqeqeq": ["error", "always"],
+    "camelcase": "error",
+    "one-var": ["error", "never"],
+    "no-console": "warn",
+    "no-undef": "off",
+    "no-new-object": "error",
+    "default-param-last": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/array-type": ["error", { "default": "array-simple" }],
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "interface", "format": ["PascalCase"], "prefix": ["I"] },
+      { "selector": "typeAlias", "format": ["PascalCase"], "prefix": ["T"] }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["sibling", "parent", "index"],
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "{react*,react*/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "{next*,next*/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "styles/**",
+            "group": "unknown",
+            "position": "before"
+          },
+          {
+            "pattern": "./**/*.scss",
+            "group": "unknown",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "unknown"],
+        "newlines-between": "always",
+        "warnOnUnassignedImports": true,
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        }
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error", // 사이드 이펙트 예상시 warn 설정
+    "react-hooks/exhaustive-deps": "error", // 사이드 이펙트 예상시 warn 설정
+    "no-restricted-imports": [
+      // import 사용 제약 조건 설정
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["lodash"],
+            "message": "\n\nlodash-es 를 import 하세요.\n\n"
+          },
+          {
+            "group": ["lodash-es"],
+            "importNames": ["default"],
+            "message": "\n\nimport { get } from 'lodash-es'; object 형태로 import 하세요.\n\n"
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      // 구문 사용 제약 조건 설정
+      "error",
+      {
+        "selector": "TSEnumDeclaration",
+        "message": "enum은 사용하지 않으며 상수 형이고 Object일때는 추론 가능하도록 as const 사용\n\nhttps://confluence.hmg-corp.io/display/SVCPFM/NextJS+Project#NextJSProject-8)%EC%83%81%EC%88%98%ED%98%95%EC%82%AC%EC%9A%A9\n\n"
+      }
+    ],
+    "@next/next/no-img-element": "off" // `next/image` 사용하지 않음, off 설정
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // eslint-plugin-react가 자동 리액트버전탐지
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "tsconfig.json"
+      },
+      "webpack": {
+        "config": "next.config.js"
+      }
+    }
+  }
+}
