@@ -1,8 +1,9 @@
 'use client';
-import LoginContainer from '../../container/LoginContainer';
+
+import SignInContainer from './SignInContainer';
 
 function LoginPage() {
-  return <LoginContainer />;
+  return <SignInContainer />;
 }
 
 export default LoginPage;
