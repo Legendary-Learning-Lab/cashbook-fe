@@ -33,12 +33,6 @@ function SignInContainer() {
           </Form.Item>
 
           <Form.Item>
-            <Link href="#" style={{ float: 'right' }}>
-              비밀번호를 잊어버리셨나요?
-            </Link>
-          </Form.Item>
-
-          <Form.Item>
             <Button
               type="primary"
               htmlType="submit"
@@ -70,7 +64,7 @@ function SignInContainer() {
 
         <Text style={{ display: 'block', textAlign: 'center', marginTop: '1rem' }}>더보기</Text>
         <Text style={{ display: 'block', textAlign: 'center', marginTop: '1rem' }}>
-          아직 계정이 없으신가요? <Link href="#">회원가입</Link>
+          아직 계정이 없으신가요? <Link href="/accounts/signup">회원가입</Link>
         </Text>
       </Space>
     </Space>
