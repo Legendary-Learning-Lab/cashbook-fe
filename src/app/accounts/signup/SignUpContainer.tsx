@@ -1,12 +1,8 @@
 import { Form, Input, Button, Typography, Space } from 'antd';
 
-const { Title, Text, Link } = Typography;
+import type { TFieldType } from './signup.types';
 
-type TFieldType = {
-  name?: string;
-  email?: string;
-  password?: string;
-};
+const { Title, Text, Link } = Typography;
 
 function SignUpContainer() {
   return (
@@ -58,7 +54,7 @@ function SignUpContainer() {
         </Form>
 
         <Text style={{ display: 'block', textAlign: 'center', marginTop: '1rem' }}>
-          이미 계정이 있으신가요? <Link href="#">로그인하기</Link>
+          이미 계정이 있으신가요? <Link href="/accounts/signin">로그인하기</Link>
         </Text>
       </Space>
     </Space>

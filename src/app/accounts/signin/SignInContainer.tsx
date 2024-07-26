@@ -1,12 +1,9 @@
 import { GoogleOutlined, MessageOutlined } from '@ant-design/icons';
 import { Form, Input, Button, Typography, Divider, Space } from 'antd';
 
-const { Link, Text } = Typography;
+import type { TFieldType } from './signin.types';
 
-type TFieldType = {
-  email?: string;
-  password?: string;
-};
+const { Link, Text } = Typography;
 
 function SignInContainer() {
   return (

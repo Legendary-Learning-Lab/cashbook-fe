@@ -1,0 +1,16 @@
+{
+  // 파일 저장시에 후행에 삽입된 공백 제거
+  "files.trimTrailingWhitespace": true,
+  // 파일 저장시에 마지막 줄바꿈 삽입
+  "files.insertFinalNewline": true,
+  // 파일 저장시에 마지막 줄바꿈 이후의 모든 줄바꿈 제거
+  "files.trimFinalNewlines": true,
+  // markdown whitespace 적용
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  // eslint 설정값에 맞추어 저장시에 에러 사항을 fix 합니다.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}
